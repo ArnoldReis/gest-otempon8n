@@ -23,3 +23,15 @@ Este documento apresenta apenas **contratos fictícios** e não expõe fluxos, c
 6. Limites de uso e tratamento de respostas incompletas permanecem no backend.
 
 O código executável de produção e as configurações específicas não fazem parte deste repositório.
+
+## Leitura do backlog atual (V6.4)
+
+O backlog é uma **fotografia das tarefas abertas** no momento da coleta, separado do fluxo histórico de eventos. Na representação pública, pode ser dividido por classificação explícita `G1`–`G5`, tipo de lista, desenvolvimento identificado, tarefas pausadas e pessoas atribuídas.
+
+- Deduplicar tarefas pelo ID antes de calcular o total aberto.
+- Contar chamados sem responsável separadamente; não inferir autoria a partir de horas registradas.
+- Se uma tarefa tem mais de um responsável, ela aparece para cada pessoa na distribuição individual, mas **apenas uma vez** no backlog total.
+- Quando uma fonte falha, marcar o backlog como indisponível, nunca retornar `0` como se fosse uma contagem verificada.
+- Comparar backlog e entregas somente com períodos e cobertura explicitados; uma queda no estoque não prova conclusão.
+
+Nenhum exemplo ou indicador deste documento representa dados de organização real.
