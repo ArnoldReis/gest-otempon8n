@@ -76,6 +76,12 @@ python -m unittest discover -s tests -v
 
 Não requer serviços externos, credenciais ou servidor n8n.
 
+## V6.5 — Chat sem alertas prioritários
+
+O copiloto deve aceitar perguntas fundamentadas em uma captura **verificada e estruturada**, mesmo quando não existem itens na fila de riscos. A lista vazia de alertas não invalida, por si só, horas, backlog, indicadores executivos ou eventos observados.
+
+O [contrato de referência e checklist de homologação](docs/chat-zero-alerts.md) e os [testes sintéticos](tests/test_chat_snapshot_policy.py) documentam os casos de regressão. São artefatos educacionais, não integração com a infraestrutura privada.
+
 ## Limites de escopo
 
 **Este repositório não é o código de um produto implantado nem um workflow n8n exportado.** Os contratos e exemplos são uma reconstrução educacional sanitizada. Não documenta nomes de pessoas reais, servidores, relatórios, URLs de empresa, custos nem KPIs internos. As decisões representam um padrão reaproveitável para arquiteturas de automação empresarial.

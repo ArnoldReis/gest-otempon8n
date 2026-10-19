@@ -7,7 +7,7 @@
     "question": {
       "type": "string",
       "minLength": 5,
-      "maxLength": 240
+      "maxLength": 220
     },
     "snapshot_id": {
       "type": "string"
