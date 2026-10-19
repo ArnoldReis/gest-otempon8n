@@ -63,5 +63,6 @@
     "model_ok": {
       "type": "boolean"
     }
-  }
+  },
+  "$id": "https://schemas.example.org/it-copilot/chat-transport-response.schema.json"
 }
