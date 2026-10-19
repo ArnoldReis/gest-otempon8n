@@ -32,6 +32,8 @@ Uma rota Webhook sem autenticação não equivale a um painel privado. Endereço
 
 **Etapa C — Separação de permissões**: painel e chat para colaboradores autorizados; atualização administrativa com política própria ou rotina agendada; editor n8n permanece restrito aos operadores.
 
+**Concluído na V6.7 (workflow n8n, não exportado aqui)**: atualização do snapshot agendada em dias úteis, uma vez por hora, de 08h a 18h na zona `America/Sao_Paulo`; botão de atualização manual removido da interface de leitura; webhook de atualização administrativa protegido por OAuth do operador. O endpoint de leitura continua sem login do n8n, mas **a autenticação dos leitores no perímetro ainda está pendente**.
+
 **Etapa D — Homologação**: liberar primeiro para um pequeno grupo piloto, validar sessão e chat; só depois estender a lista de e-mails autorizados.
 
 ## Matriz de verificação
