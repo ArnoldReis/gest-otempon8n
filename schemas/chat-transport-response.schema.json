@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copilot chat JSON response (public-safe contract)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "channel",
+    "request_id",
+    "kind",
+    "answer",
+    "sources",
+    "model_ok"
+  ],
+  "properties": {
+    "channel": {
+      "const": "ti-copiloto-json-v2"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9-]{16,60}$"
+    },
+    "kind": {
+      "enum": [
+        "answer",
+        "auth",
+        "error",
+        "limit",
+        "refresh"
+      ]
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2400
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "url"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 70
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 145
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        }
+      }
+    },
+    "model_ok": {
+      "type": "boolean"
+    }
+  }
+}
