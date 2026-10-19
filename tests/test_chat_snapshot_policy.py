@@ -57,5 +57,18 @@ class ChatSnapshotPolicyTests(unittest.TestCase):
                 self.assertEqual((False, "invalid_question"), evaluate_question(data, question))
 
 
+    def test_public_query_schema_matches_real_question_limit(self):
+        import json
+        from pathlib import Path
+        from jsonschema import Draft202012Validator
+        schema_path = Path(__file__).resolve().parents[1] / "schemas" / "ai-query.schema.json"
+        schema = json.loads(schema_path.read_text("utf-8"))
+        validate = Draft202012Validator(schema)
+        def query(text):
+            return {"question": text, "snapshot_id": "synthetic-001", "response_language": "pt-BR"}
+        self.assertTrue(validate.is_valid(query("x" * 220)))
+        self.assertFalse(validate.is_valid(query("x" * 221)))
+
+
 if __name__ == "__main__":
     unittest.main()
