@@ -38,6 +38,7 @@ flowchart LR
 | `time-review` | Sessão automática separada e status de conferência |
 | `pr` | Pull request, CI e revisão |
 | `automation-event` | Estado observado e recorrência de erros |
+| `delivery-event` | Transições de criação, conclusão ou reabertura com evidência obrigatória |
 | `operational-insight` | Correlações justificadas e indicadores de cobertura |
 | `snapshot` | Captura consolidada e flags de confiabilidade |
 | `ai-query` | Pergunta limitada a snapshot |
@@ -58,7 +59,7 @@ flowchart LR
 ## Estrutura
 
 ```text
-schemas/             9 JSON Schemas (Draft 2020-12)
+schemas/             10 JSON Schemas (Draft 2020-12)
 examples/            registros exclusivamente fictícios
 docs/                arquitetura, trade-offs, segurança e case de portfólio
 tests/               verificações de contratos, invariantes e privacidade
@@ -79,6 +80,6 @@ Não requer serviços externos, credenciais ou servidor n8n.
 
 **Este repositório não é o código de um produto implantado nem um workflow n8n exportado.** Os contratos e exemplos são uma reconstrução educacional sanitizada. Não documenta nomes de pessoas reais, servidores, relatórios, URLs de empresa, custos nem KPIs internos. As decisões representam um padrão reaproveitável para arquiteturas de automação empresarial.
 
-Veja [Arquitetura](docs/architecture.md), [Segurança](docs/security.md), [Modelagem](docs/modeling-decisions.md) e [Case de engenharia](docs/portfolio-case-study.md).
+Veja [Histórico de entregas e sessões de chat](docs/event-history.md), [Arquitetura](docs/architecture.md), [Segurança](docs/security.md), [Modelagem](docs/modeling-decisions.md) e [Case de engenharia](docs/portfolio-case-study.md).
 
 **Licença:** não definida; a publicação pública não implica permissão de reutilização.

@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/delivery-event.schema.json",
+  "title": "delivery-event (synthetic blueprint)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "event_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event_type": {
+      "enum": [
+        "created",
+        "delivered",
+        "reopened",
+        "status_changed",
+        "unverified_status"
+      ]
+    },
+    "list_type": {
+      "enum": [
+        "support",
+        "internal"
+      ]
+    },
+    "before_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "after_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "classification": {
+      "enum": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "unclassified"
+      ]
+    },
+    "development": {
+      "type": "boolean"
+    },
+    "assignees": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "valid_transition": {
+      "type": "boolean"
+    },
+    "evidence": {
+      "enum": [
+        "task_created_event",
+        "status_before_after",
+        "insufficient_transition"
+      ]
+    }
+  },
+  "required": [
+    "event_key",
+    "task_id",
+    "occurred_at",
+    "event_type",
+    "list_type",
+    "classification",
+    "development",
+    "valid_transition",
+    "evidence"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "enum": [
+              "delivered",
+              "reopened"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "valid_transition": {
+            "const": true
+          },
+          "evidence": {
+            "const": "status_before_after"
+          },
+          "before_status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "after_status": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "before_status",
+          "after_status"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "const": "created"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "valid_transition": {
+            "const": true
+          },
+          "evidence": {
+            "const": "task_created_event"
+          }
+        }
+      }
+    }
+  ]
+}

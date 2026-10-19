@@ -14,7 +14,7 @@ def errors_for(name, obj):
 
 class Contracts(unittest.TestCase):
     def test_all_schemas_are_valid(self):
-        self.assertEqual(len(SCHEMAS), 9)
+        self.assertEqual(len(SCHEMAS), 10)
         for name, s in SCHEMAS.items():
             with self.subTest(name=name): Draft202012Validator.check_schema(s)
 
@@ -40,6 +40,12 @@ class Contracts(unittest.TestCase):
         t = json.loads((ROOT/"examples/task.sample.json").read_text("utf-8"))
         t["raw_payload"] = {"token": "forbidden"}
         self.assertTrue(errors_for("task", t))
+
+    def test_delivery_requires_verified_transition(self):
+        sample = json.loads((ROOT/"examples/delivery-event.sample.json").read_text("utf-8"))
+        self.assertEqual([], errors_for("delivery-event", sample))
+        sample["valid_transition"] = False
+        self.assertTrue(errors_for("delivery-event", sample))
 
     def test_no_runtime_secrets_or_exports_are_versioned(self):
         blocked_ext = {".sqlite", ".db", ".pem", ".key", ".log"}

@@ -1,0 +1,16 @@
+{
+  "event_key": "event-example-001",
+  "task_id": "ticket-001",
+  "occurred_at": "2026-01-21T12:00:00Z",
+  "event_type": "delivered",
+  "list_type": "support",
+  "before_status": "in_progress",
+  "after_status": "completed",
+  "classification": "G2",
+  "development": true,
+  "assignees": [
+    "Analista Exemplo"
+  ],
+  "valid_transition": true,
+  "evidence": "status_before_after"
+}
