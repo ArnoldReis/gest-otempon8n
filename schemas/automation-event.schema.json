@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/automation-event.schema.json",
+  "title": "automation-event (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "workflow_id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "error",
+        "success",
+        "unknown"
+      ]
+    },
+    "last_seen_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "errors_in_window": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "recovery_confirmed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "workflow_id",
+    "state",
+    "last_seen_at",
+    "errors_in_window",
+    "recovery_confirmed"
+  ],
+  "additionalProperties": false
+}

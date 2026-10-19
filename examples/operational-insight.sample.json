@@ -1,0 +1,31 @@
+{
+  "captured_at": "2026-01-20T12:00:00Z",
+  "coverage": {
+    "prioritized_tasks": 2,
+    "linked_tasks_with_timelogs": 1,
+    "prioritized_tasks_without_timelogs": 1,
+    "tracked_tasks_with_valid_id": 1,
+    "time_source_available": true,
+    "recent_incidents_confirmed": 0
+  },
+  "correlations": [
+    {
+      "task_id": "ticket-001",
+      "priority": "P1",
+      "tracked_ms": 5400000,
+      "assignees": [
+        "Analista Exemplo"
+      ],
+      "time_reporters": [
+        "Analista Exemplo"
+      ],
+      "join_method": "exact_task_id",
+      "confidence": "verified_pair"
+    }
+  ],
+  "confirmed_recurrent_failures": [],
+  "caveats": [
+    "Sem apontamentos não significa sem trabalho.",
+    "Sistemas de horas distintos não são somados."
+  ]
+}

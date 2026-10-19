@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/time-entry.schema.json",
+  "title": "time-entry (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "person_id": {
+      "type": "string"
+    },
+    "person_display_name": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "support",
+        "internal",
+        "other"
+      ]
+    },
+    "running": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "task_tracker"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "task_id",
+    "person_id",
+    "duration_ms",
+    "started_at",
+    "running",
+    "source"
+  ],
+  "additionalProperties": false
+}

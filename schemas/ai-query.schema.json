@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/ai-query.schema.json",
+  "title": "ai-query (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 240
+    },
+    "snapshot_id": {
+      "type": "string"
+    },
+    "response_language": {
+      "const": "pt-BR"
+    }
+  },
+  "required": [
+    "question",
+    "snapshot_id",
+    "response_language"
+  ],
+  "additionalProperties": false
+}

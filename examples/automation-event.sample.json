@@ -1,0 +1,7 @@
+{
+  "workflow_id": "automation-example",
+  "state": "error",
+  "last_seen_at": "2026-01-20T11:30:00Z",
+  "errors_in_window": 3,
+  "recovery_confirmed": false
+}

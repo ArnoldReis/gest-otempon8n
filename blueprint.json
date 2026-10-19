@@ -1,0 +1,29 @@
+{
+  "kind": "conceptual-blueprint",
+  "not_importable_in_n8n": true,
+  "mode": "read_only",
+  "version": "1.0.0",
+  "stages": [
+    "ingest",
+    "validate",
+    "normalize",
+    "prioritize",
+    "join-exact-task-id",
+    "capture-versioned-snapshot",
+    "serve-authenticated-view",
+    "answer-grounded-question"
+  ],
+  "sources": [
+    "task-tracker",
+    "code-host",
+    "automation-monitoring",
+    "time-tracker"
+  ],
+  "invariants": [
+    "read-only sources",
+    "no PII in examples",
+    "no double counting time",
+    "fail closed on invalid session",
+    "no invented incident state"
+  ]
+}

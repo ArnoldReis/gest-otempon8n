@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/operational-insight.schema.json",
+  "title": "operational-insight (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prioritized_tasks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "linked_tasks_with_timelogs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "prioritized_tasks_without_timelogs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tracked_tasks_with_valid_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "time_source_available": {
+          "type": "boolean"
+        },
+        "recent_incidents_confirmed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "prioritized_tasks",
+        "linked_tasks_with_timelogs",
+        "prioritized_tasks_without_timelogs",
+        "time_source_available",
+        "recent_incidents_confirmed"
+      ]
+    },
+    "correlations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "P0",
+              "P1",
+              "P2",
+              "P3"
+            ]
+          },
+          "tracked_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "assignees": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "time_reporters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "join_method": {
+            "const": "exact_task_id"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "verified_pair",
+              "insufficient_data"
+            ]
+          }
+        },
+        "required": [
+          "task_id",
+          "priority",
+          "tracked_ms",
+          "join_method",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "confirmed_recurrent_failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "captured_at",
+    "coverage",
+    "correlations",
+    "confirmed_recurrent_failures",
+    "caveats"
+  ],
+  "additionalProperties": false
+}

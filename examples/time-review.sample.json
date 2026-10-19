@@ -1,0 +1,11 @@
+{
+  "id": "session-001",
+  "task_id": "ticket-002",
+  "person_id": "person-b",
+  "started_at": "2026-01-20T09:00:00Z",
+  "state": "closed",
+  "review_status": "pending",
+  "captured_seconds": 3600,
+  "confirmed_seconds": 0,
+  "suspicious": false
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/pr.schema.json",
+  "title": "pr (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "open",
+        "merged",
+        "closed"
+      ]
+    },
+    "ci_state": {
+      "type": "string",
+      "enum": [
+        "failed",
+        "pending",
+        "passed",
+        "unknown"
+      ]
+    },
+    "review_state": {
+      "type": "string",
+      "enum": [
+        "required",
+        "approved",
+        "changes_requested",
+        "unknown"
+      ]
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "url": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "state",
+    "ci_state",
+    "review_state",
+    "last_updated_at",
+    "url"
+  ],
+  "additionalProperties": false
+}

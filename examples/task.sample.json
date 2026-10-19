@@ -1,0 +1,15 @@
+{
+  "id": "ticket-001",
+  "title": "Corrigir sincronização simulada de cadastros",
+  "status": "open",
+  "priority": "P1",
+  "assignees": [
+    {
+      "id": "person-a",
+      "display_name": "Analista Exemplo"
+    }
+  ],
+  "updated_at": "2026-01-20T12:00:00Z",
+  "due_at": "2026-01-21T16:00:00Z",
+  "blocked_by": []
+}

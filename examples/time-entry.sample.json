@@ -1,0 +1,11 @@
+{
+  "id": "entry-001",
+  "task_id": "ticket-001",
+  "person_id": "person-a",
+  "person_display_name": "Analista Exemplo",
+  "duration_ms": 5400000,
+  "started_at": "2026-01-20T10:30:00Z",
+  "scope": "support",
+  "running": false,
+  "source": "task_tracker"
+}

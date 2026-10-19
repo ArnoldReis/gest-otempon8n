@@ -1,0 +1,12 @@
+{
+  "answer": "A tarefa fictícia ticket-001 possui registro de tempo relacionado por ID exato.",
+  "mode": "deterministic_fallback",
+  "generated_at": "2026-01-20T12:05:00Z",
+  "source_refs": [
+    "ticket-001"
+  ],
+  "warnings": [
+    "Estes dados são sintéticos."
+  ],
+  "read_only": true
+}

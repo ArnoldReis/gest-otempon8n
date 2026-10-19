@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/it-operations/time-review.schema.json",
+  "title": "time-review (synthetic blueprint)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "person_id": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed"
+      ]
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "suspicious",
+        "confirmed"
+      ]
+    },
+    "captured_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "confirmed_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "suspicious": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "task_id",
+    "person_id",
+    "started_at",
+    "state",
+    "review_status",
+    "captured_seconds",
+    "confirmed_seconds",
+    "suspicious"
+  ],
+  "additionalProperties": false
+}
