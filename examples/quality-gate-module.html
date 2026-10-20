@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quality Gate · Exemplo genérico</title>
+<style>
+:root{--forest:#173b34;--line:#dedfd6;--muted:#68766d;--bg:#f7f6f2}
+*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0;background:var(--bg);color:#243a31}
+main{max-width:1000px;margin:auto;padding:35px 18px}h1{font:400 clamp(28px,4vw,44px) Georgia,serif;color:var(--forest)}
+p{line-height:1.6;color:var(--muted)}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:1px}
+.stats,.help{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:10px;background:white;padding:18px}
+.card span{display:block;font-size:12px;color:var(--muted)}.card strong{font:400 32px Georgia,serif;color:var(--forest)}
+.tabs{display:flex;gap:5px;border-bottom:1px solid var(--line);margin-top:24px;flex-wrap:wrap}
+.tabs button{padding:12px;border:0;background:transparent;cursor:pointer;font-weight:600;color:var(--muted)}
+.tabs button[aria-selected=true]{border-bottom:2px solid #af8757;color:var(--forest)}
+.tabs button:focus-visible{outline:2px solid var(--forest)}[role=tabpanel]{padding-top:18px}[hidden]{display:none!important}
+.notice{border-left:3px solid #b28549;background:#f8f1e2;padding:18px}
+@media(max-width:650px){.stats,.help{grid-template-columns:1fr}}
+</style></head>
+<body><main><p class="eyebrow">Copiloto operacional · Qualidade de PRs</p><h1>Qualidade de Pull Requests.</h1>
+<p>Somente leitura. Pareceres de PR não medem produtividade nem comprovam uma entrega concluída.</p>
+<div class="stats" aria-label="Indicadores de auditoria">
+<div class="card"><span>Aprovados</span><strong>—</strong></div>
+<div class="card"><span>Pendentes</span><strong>—</strong></div>
+<div class="card"><span>Reprovados</span><strong>—</strong></div></div>
+<div class="tabs" role="tablist" aria-label="Seções do Quality Gate">
+<button id="tab-summary" role="tab" aria-controls="panel-summary" aria-selected="true" data-tab="summary">Visão rápida</button>
+<button id="tab-audits" role="tab" aria-controls="panel-audits" aria-selected="false" data-tab="audits">Auditorias</button>
+<button id="tab-help" role="tab" aria-controls="panel-help" aria-selected="false" data-tab="help">Entenda os pareceres</button></div>
+<section id="panel-summary" role="tabpanel" aria-labelledby="tab-summary">
+<div class="help"><div class="card"><strong>1.</strong><p>Verificar vínculo e notas.</p></div><div class="card"><strong>2.</strong><p>Conferir SHA e etapas do CI.</p></div><div class="card"><strong>3.</strong><p>Persistir parecer consultivo.</p></div></div></section>
+<section id="panel-audits" role="tabpanel" aria-labelledby="tab-audits" hidden>
+<div class="notice"><strong>Dados privados indisponíveis neste exemplo.</strong><p>Os traços não são zeros. Nenhuma auditoria foi carregada ou embutida no HTML.</p></div></section>
+<section id="panel-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+<div class="help"><div class="card"><strong>Aprovado</strong><p>Evidências verificadas.</p></div><div class="card"><strong>Pendente</strong><p>Falta evidência ou há indisponibilidade.</p></div><div class="card"><strong>Reprovado</strong><p>Falha técnica comprovada ou política violada.</p></div></div></section>
+<p>Demo sintética. Nenhum dado ou endpoint operacional.</p>
+</main><script>
+(function(){
+const tabs=[...document.querySelectorAll('[data-tab]')];
+function show(key){tabs.forEach(b=>{const selected=b.dataset.tab===key;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;document.getElementById('panel-'+b.dataset.tab).hidden=!selected})}
+tabs.forEach((b,i)=>{b.addEventListener('click',()=>show(b.dataset.tab));b.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const next=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];show(next.dataset.tab);next.focus()})});
+show('summary');
+})();
+</script></body></html>
