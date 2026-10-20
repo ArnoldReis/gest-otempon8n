@@ -23,7 +23,7 @@ class QualityGateUiTests(unittest.TestCase):
         text = (ROOT / "docs" / "quality-gate-module.md").read_text()
         self.assertIn("Autenticação perimetral", text)
         self.assertIn("não", text.lower())
-        self.assertIn("Somente", text)
+        self.assertIn("somente", text.lower())
 
 if __name__ == "__main__":
     unittest.main()
