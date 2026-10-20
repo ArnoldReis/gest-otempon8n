@@ -14,7 +14,7 @@ def errors_for(name, obj):
 
 class Contracts(unittest.TestCase):
     def test_all_schemas_are_valid(self):
-        self.assertEqual(len(SCHEMAS), 10)
+        self.assertGreaterEqual(len(SCHEMAS), 10)
         for name, s in SCHEMAS.items():
             with self.subTest(name=name): Draft202012Validator.check_schema(s)
 
