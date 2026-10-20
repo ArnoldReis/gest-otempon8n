@@ -1,0 +1,51 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Copiloto Operacional — Exemplo Fictício</title>
+<style>
+:root{--dark:#173b34;--paper:#fffefa;--line:#e1e0d7;--text:#263d34}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:12px}body{margin:0;background:#f7f6f2;color:var(--text);font:14px/1.55 system-ui,sans-serif}
+.shell{display:grid;grid-template-columns:210px minmax(0,1fr);min-height:100vh}
+nav{background:var(--dark);padding:20px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+nav a{display:flex;gap:12px;color:#d2e1d9;text-decoration:none;border-radius:6px;padding:9px 12px;font-size:12px}nav a:hover,nav a[aria-current=location]{background:#31574b;color:white}
+nav span{font:11px ui-monospace,monospace;color:#b1c6bd}
+main{padding:34px clamp(20px,4vw,60px);min-width:0}h1{font:400 38px Georgia,serif;color:var(--dark)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.metric{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:19px;min-width:0}
+.metric h2{font-size:12px;color:var(--dark);margin:0}.metric strong{display:block;font:400 36px Georgia,serif;margin:11px 0}
+.metric p{font-size:12px;color:#6b796f;margin:0}
+details{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px;margin-top:17px}summary{cursor:pointer;font-weight:700}
+section:not(.metrics){margin-top:40px;padding:24px 0;border-top:1px solid var(--line);scroll-margin-top:15px}section h2{color:var(--dark)}
+@media(max-width:950px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.shell{display:block}nav{position:static;height:auto;display:flex;overflow-x:auto;gap:6px}nav a{white-space:nowrap}.metrics{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body><div class="shell"><nav aria-label="Áreas do painel">
+<a href="#inicio" data-nav="inicio" aria-current="location"><span>01</span>Visão geral</a>
+<a href="#gestao" data-nav="gestao"><span>02</span>Gestão</a>
+<a href="#entregas" data-nav="entregas"><span>03</span>Entregas</a>
+<a href="#prioridades" data-nav="prioridades"><span>04</span>Prioridades</a>
+<a href="#assistente" data-nav="assistente"><span>05</span>Assistente</a>
+<a href="#fontes" data-nav="fontes"><span>06</span>Fontes</a>
+<a href="#qualidade" data-nav="qualidade"><span>07</span>Qualidade de PRs</a>
+<a href="#tempo" data-nav="tempo"><span>08</span>Tempo-TI</a>
+<a href="#inteligencia" data-nav="inteligencia"><span>09</span>Inteligência</a>
+<a href="#historico" data-nav="historico"><span>10</span>Histórico</a>
+</nav><main><header id="inicio"><p>Exemplo puramente fictício · não há integração com serviços</p><h1>O que precisa de atenção.</h1></header>
+<div class="metrics">
+<article class="metric"><h2>Chamados não encerrados</h2><strong>—</strong><p>Tarefas das listas autorizadas; não indica atraso.</p></article>
+<article class="metric"><h2>PRs abertos</h2><strong>—</strong><p>Pull requests no repositório consultado no instante da coleta.</p></article>
+<article class="metric"><h2>Ações em destaque</h2><strong>—</strong><p>Até cinco prioridades, não o total de pendências.</p></article>
+<article class="metric"><h2>Execuções com erro (24h)</h2><strong>—</strong><p>Eventos da amostra consultada; não falhas ativas distintas.</p></article>
+</div><details id="help"><summary>Como ler os indicadores?</summary><p>O traço significa sem dados confirmados. As métricas usam fontes e unidades diferentes. Histórico de entregas não é retroativo.</p></details>
+<section id="gestao"><h2>Gestão</h2><p>Área de referência sem registros internos.</p></section>
+<section id="entregas"><h2>Entregas TI</h2><p>Área de referência sem registros internos.</p></section>
+<section id="prioridades"><h2>Prioridades</h2><p>Área de referência sem registros internos.</p></section>
+<section id="assistente"><h2>Copiloto IA</h2><p>Área de referência sem registros internos.</p></section>
+<section id="fontes"><h2>Fontes de dados</h2><p>Área de referência sem registros internos.</p></section>
+<section id="qualidade"><h2>Qualidade de PRs</h2><p>Área de referência sem registros internos.</p></section>
+<section id="tempo"><h2>Tempo rastreado</h2><p>Área de referência sem registros internos.</p></section>
+<section id="inteligencia"><h2>Inteligência</h2><p>Área de referência sem registros internos.</p></section>
+<section id="historico"><h2>Histórico</h2><p>Área de referência sem registros internos.</p></section>
+</main></div>
+<script>
+const anchors=[...document.querySelectorAll('nav a[data-nav]')];
+function setCurrent(id){anchors.forEach(a=>{if(a.dataset.nav===id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
+anchors.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const id=a.dataset.nav,section=document.getElementById(id);if(!section)return;setCurrent(id);history.replaceState(null,'','#'+id);section.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}));
+</script></body></html>
