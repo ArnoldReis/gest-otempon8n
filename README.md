@@ -80,6 +80,8 @@ Não requer serviços externos, credenciais ou servidor n8n.
 
 **Este repositório não é o código de um produto implantado nem um workflow n8n exportado.** Os contratos e exemplos são uma reconstrução educacional sanitizada. Não documenta nomes de pessoas reais, servidores, relatórios, URLs de empresa, custos nem KPIs internos. As decisões representam um padrão reaproveitável para arquiteturas de automação empresarial.
 
+Veja também o [módulo centralizado de Quality Gate](docs/quality-gate-module.md) e sua [demonstração HTML fictícia](examples/quality-gate-module.html), com indicadores em camadas e dados protegidos até a autenticação do leitor.
+
 Veja [Histórico de entregas e sessões de chat](docs/event-history.md), [Arquitetura](docs/architecture.md), [Segurança](docs/security.md), [Modelagem](docs/modeling-decisions.md) e [Case de engenharia](docs/portfolio-case-study.md).
 
 **Licença:** não definida; a publicação pública não implica permissão de reutilização.
